@@ -1,4 +1,4 @@
-package com.justplay1994.github.dao;
+package com.justplay1994.github.dao.dx;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,8 +15,7 @@ import java.util.List;
  * @Update_Description: huangzezhou 补充
  * @Description:
  **/
-@Mapper
-public interface DbOperateMapper {
+public interface DxDbOperateMapper {
 
-    List<HashMap> test();
+    List<HashMap> queryAllBYTableName(String tbName);
 }

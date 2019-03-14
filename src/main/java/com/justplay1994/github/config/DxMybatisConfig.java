@@ -3,6 +3,7 @@ package com.justplay1994.github.config;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -25,7 +26,8 @@ import javax.sql.DataSource;
  * @Description:
  **/
 @Configuration
-public class MybatisConfig {
+@MapperScan("com.justplay1994.github.dao.dx")
+public class DxMybatisConfig {
 
     @Bean(name = "dxDataSource") //作为一个bean对象并命名
     @ConfigurationProperties(prefix = "spring.dx") //配置文件中，该数据源的前缀
@@ -39,7 +41,7 @@ public class MybatisConfig {
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("dxDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:com/justplay1994/github/dao/*.xml"));//对应mapper.xml的具体位置
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:com/justplay1994/github/dao/dx/*.xml"));//对应mapper.xml的具体位置
         return bean.getObject();
     }
 

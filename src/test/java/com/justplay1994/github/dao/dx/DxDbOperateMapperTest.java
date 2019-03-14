@@ -1,4 +1,4 @@
-package com.justplay1994.github.dao;
+package com.justplay1994.github.dao.dx;
 
 
 import org.junit.Test;
@@ -22,14 +22,14 @@ import java.util.List;
  **/
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DbOperateMapperTest {
+public class DxDbOperateMapperTest {
 
     @Autowired
-    DbOperateMapper dbOperateMapper;
+    DxDbOperateMapper dxDbOperateMapper;
 
     @Test
     public void test(){
-        List<HashMap> list = dbOperateMapper.test();
+        List<HashMap> list = dxDbOperateMapper.test();
         System.out.println();
     }
 

@@ -33,6 +33,25 @@ spring:
       validation-query-timeout: 5000
       max-lifetime: 1800000
       test-while-idle: true
+  ft:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.192.19.116:1521/orcl
+    username: ZHDX
+    password: 456789
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 24
+      pool-name: ${spring.application.name}-CP
+      idle-timeout: 6000    #移除空闲连接的时间
+      cachePrepStmts: true
+      prepStmtCacheSize: 250
+      prepStmtCacheSqlLimit: 2048
+      leakDetectionThreshold: 2000
+      validation-interval: 5000
+      validation-query-timeout: 5000
+      max-lifetime: 1800000
+      test-while-idle: true
 
 
 
