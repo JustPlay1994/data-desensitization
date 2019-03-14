@@ -3,7 +3,7 @@
 <mapper namespace="com.justplay1994.github.dao.ft.FtDbOperateMapper">
 
 
-    <select id="queryAllBYTableName" resultType="java.util.HashMap">
+    <select id="queryAllByTableName" resultType="java.util.HashMap">
         select * from ${tbName}
     </select>
 </mapper>

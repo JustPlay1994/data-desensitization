@@ -1,6 +1,7 @@
 package com.justplay1994.github.dao.dx;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,5 +18,9 @@ import java.util.List;
  **/
 public interface DxDbOperateMapper {
 
-    List<HashMap> queryAllBYTableName(String tbName);
+    List<HashMap> queryAllByTableName(@Param("tbName") String tbName);
+
+    int insertOne(@Param("tbName") String tbName, @Param("row") HashMap row);
+
+    int insertList(@Param("rowList") List<HashMap> rowList);
 }

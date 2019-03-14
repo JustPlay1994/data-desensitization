@@ -2,8 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.justplay1994.github.dao.dx.DxDbOperateMapper">
 
+    <insert id="insertOne">
+--         insert into XX (VV, TT) values(5,'aa')
 
-    <select id="queryAllBYTableName" resultType="java.util.HashMap">
-        select * from ${tbName}
+        insert into ${tbName}
+        <foreach item="value" index="key" collection="row" open="(" close=")" separator=",">
+            ${key}
+        </foreach>
+        values
+        <foreach item="value" index="key" collection="row" open="(" close=")" separator=",">
+            #{value}
+        </foreach>
+    </insert>
+    <insert id="insertList">
+
+    </insert>
+
+
+    <select id="queryAllByTableName" resultType="java.util.HashMap">
+        select * from "${tbName}"
     </select>
 </mapper>

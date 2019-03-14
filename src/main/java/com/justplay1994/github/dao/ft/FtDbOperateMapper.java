@@ -15,5 +15,5 @@ import java.util.List;
  **/
 public interface FtDbOperateMapper {
 
-    List<HashMap> queryAllBYTableName(String tbName);
+    List<HashMap> queryAllByTableName(String tbName);
 }

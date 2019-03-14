@@ -25,12 +25,20 @@ import java.util.List;
 public class DxDbOperateMapperTest {
 
     @Autowired
-    DxDbOperateMapper dxDbOperateMapper;
+    DxDbOperateMapper mapper;
 
     @Test
-    public void test(){
-        List<HashMap> list = dxDbOperateMapper.test();
+    public void queryAllByTableName(){
+        List<HashMap> list = mapper.queryAllByTableName("test");
         System.out.println();
+    }
+
+    @Test
+    public void insertOne(){
+        HashMap row = new HashMap();
+        row.put("\"vv\"", "11");
+        row.put("TT","3");
+        mapper.insertOne("\"test\"", row);
     }
 
 }
