@@ -1,0 +1,67 @@
+package com.justplay1994.github.utils;
+
+/**
+ * @Package: com.justplay1994.github.utils
+ * @Project: data-desensitization
+ * @Creator: huangzezhou
+ * @Create_Date: 2019/3/14 16:18
+ * @Updater: huangzezhou
+ * @Update_Date: 2019/3/14 16:18
+ * @Update_Description: huangzezhou 补充
+ * @Description:
+ **/
+public class CancelUtil {
+    private static final int SIZE = 6;
+    private static final String SYMBOL = "*";
+
+    public static void main(String[] args) {
+        String s = "";
+        String conceal = toConceal(s);
+        System.out.println(conceal);
+    }
+
+    public static String toConceal(String value) {
+        if (null == value || "".equals(value)) {
+            return value;
+        }
+        int len = value.length();
+        int pamaone = len / 2;
+        int pamatwo = pamaone - 1;
+        int pamathree = len % 2;
+        StringBuffer stringBuilder = new StringBuffer();
+        if (len <= 2) {
+            if (pamathree == 1) {
+                return SYMBOL;
+            }
+            stringBuilder.append(SYMBOL);
+            stringBuilder.append(value.charAt(len - 1));
+        } else {
+            if (pamatwo <= 0) {
+                stringBuilder.append(value.substring(0, 1));
+                stringBuilder.append(SYMBOL);
+                stringBuilder.append(value.substring(len - 1, len));
+
+            } else if (pamatwo >= SIZE / 2 && SIZE + 1 != len) {
+                int pamafive = (len - SIZE) / 2;
+                stringBuilder.append(value.substring(0, pamafive));
+                for (int i = 0; i < SIZE; i++) {
+                    stringBuilder.append(SYMBOL);
+                }
+                if ((pamathree == 0 && SIZE / 2 == 0) || (pamathree != 0 && SIZE % 2 != 0)) {
+                    stringBuilder.append(value.substring(len - pamafive, len));
+                } else {
+                    stringBuilder.append(value.substring(len - (pamafive + 1), len));
+                }
+            } else {
+                int pamafour = len - 2;
+                stringBuilder.append(value.substring(0, 1));
+                for (int i = 0; i < pamafour; i++) {
+                    stringBuilder.append(SYMBOL);
+                }
+                stringBuilder.append(value.substring(len - 1, len));
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+}

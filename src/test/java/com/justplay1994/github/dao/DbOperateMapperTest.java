@@ -1,0 +1,36 @@
+package com.justplay1994.github.dao;
+
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * @Package: com.justplay1994.github.dao
+ * @Project: data-desensitization
+ * @Creator: huangzezhou
+ * @Create_Date: 2019/3/14 17:14
+ * @Updater: huangzezhou
+ * @Update_Date: 2019/3/14 17:14
+ * @Update_Description: huangzezhou 补充
+ * @Description:
+ **/
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class DbOperateMapperTest {
+
+    @Autowired
+    DbOperateMapper dbOperateMapper;
+
+    @Test
+    public void test(){
+        List<HashMap> list = dbOperateMapper.test();
+        System.out.println();
+    }
+
+}
